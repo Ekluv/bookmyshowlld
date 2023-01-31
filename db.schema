@@ -1,0 +1,81 @@
+city
+    id
+    name
+
+
+Threatre
+    id
+    name
+    address
+    city_id
+
+
+Auditorium
+    id
+    name
+    threatre_id
+
+Feature
+    id
+    value
+
+Show
+    id
+    date
+    start_time
+    end_time
+    auditorium_id
+    movie_id
+
+
+Movie
+    id
+    name
+    release_date
+
+Actor
+    id
+    name
+
+MovieActors
+    id
+    movie_id
+    actor_id
+
+SeatType
+    id
+    name
+
+Seat
+    id
+    auditorium_id
+    row
+    col
+    name
+    type: SeatType
+
+ShowSeatType
+    id
+    show_id
+    seat_type_id
+    price:
+
+ShowSeat
+    id
+    show_id
+    seat_id
+    status: enum<BOOKED | AVAILABLE | BLOCKED>
+
+Payment
+    id
+    vendor_id
+    amount
+    status: enum<SUCCESS | FAILED>
+
+Ticket
+    id
+    show_id
+    user_id
+    payment_id
+    ShowSeat: hasMany
+    status: enum<BOOKED | REFUNDED | CANCELLED>
